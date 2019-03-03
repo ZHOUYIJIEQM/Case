@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style>
+		.theme {
+			color: #ffcc00;
+			font-weight: bold;
+			font-size: 1.5em;
+			margin: 0.5em 0;
+		}
+
+		.faq-block {
+			background-color: rgb(250, 247, 245);
+			font-size: 16px;
+			border-bottom: 1px dotted #ddd;
+			cursor: pointer;
+			margin-bottom: 0.5em;
+		}
+
+		.faq-block:hover {
+			background-color: rgb(225, 225, 245);
+			-webkit-transition: all 0.2s;
+			-o-transition: all 0.2s;
+			-moz-transition: all 0.2s;
+			transition: all 0.2s;
+		}
+
+		.faq-block ul {
+			list-style-type: square;
+		}
+
+		.faq-block .faq-plus {
+			float: left;
+			color: #ffcc00;
+			font-weight: bold;
+			font-size: 2em;
+			text-align: center;
+			vertical-align: middle;
+			-webkit-transition: all 200ms;
+			-moz-transition: all 200ms;
+			transition: all 200ms;
+		}
+
+		.faq-expand {
+			-webkit-transform: rotate(-45deg);
+			-webkit-transform-origin: 50% 50%;
+			-webkit-transition: all 200ms;
+			-moz-transform: rotate(-45deg);
+			-moz-transform-origin: 50% 50%;
+			-moz-transition: all 200ms;
+			transform: rotate(45deg);
+			transform-origin: 50% 50%;
+			transition: all 0.2s;
+		}
+
+		.faq-question {
+			font-weight: bold;
+			padding-top: 0.8em;
+		}
+
+		.faq-answer {
+			color: #777;
+			line-height: 1.5em;
+			display: none;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<div class="theme text-center row">点击展开/合起</div>
+		<div class="faq-block row">
+			<div class="faq-plus col-xs-1">+</div>
+			<div class="faq-question col-xs-11">问题： 这个东西是什么？</div>
+			<div class="faq-answer col-xs-11 col-xs-offset-1">回答： 这是手风琴效果的问答卡片</div>
+		</div>
+		<div class="faq-block row">
+			<div class="faq-plus col-xs-1">+</div>
+			<div class="faq-question col-xs-11">问题： 怎么用？</div>
+			<div class="faq-answer col-xs-11 col-xs-offset-1">回答： 点击可以展开/合起</div>
+		</div>
+		<div class="faq-block row">
+			<div class="faq-plus col-xs-1">+</div>
+			<div class="faq-question col-xs-11">
+				问题： 你有什么评价
+			</div>
+			<div class="faq-answer col-xs-11 col-xs-offset-1">
+				总结:
+				<ul>
+					<li>简单</li>
+					<li>好看</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<script>
+		$(".faq-block").click(function() {
+			var container = $(this);
+			var answer = container.find(".faq-answer");
+			var trigger = container.find(".faq-plus");
+
+			answer.slideToggle(200);
+			trigger.hasClass("faq-expand") ? trigger.removeClass("faq-expand") : trigger.addClass("faq-expand")
+		});
+	</script>
+</body>
+
+</html>
