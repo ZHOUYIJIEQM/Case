@@ -1,6 +1,5 @@
 # 整合一些小案例
-> Canvas鼠标移动炫彩小球： [点击查看](https://zhouyijieqm.github.io/Case/Canvas鼠标移动炫彩小球.html)
-
+> Canvas鼠标移动炫彩小球： [点击查看](https://zhouyijieqm.github.io/Case/Canvas鼠标移动炫彩小球.html)  
 > checkbox多选/反选： [点击查看](https://zhouyijieqm.github.io/Case/checkbox.html)
 > js运动函数： [点击查看](https://zhouyijieqm.github.io/Case/js运动函数.html)
 > 百度有啊通栏展示： [点击查看](https://zhouyijieqm.github.io/Case/百度有啊通栏展示.html)
