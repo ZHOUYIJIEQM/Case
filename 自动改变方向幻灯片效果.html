@@ -2,163 +2,163 @@
 <html lang="en">
 
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta charset="utf-8">
-	<title>自动改变方向——幻灯片效果</title>
-	<style>
-		body, div, ul, li {
-			margin: 0;
-			padding: 0;
-		}
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <title>自动改变方向——幻灯片效果</title>
+  <style>
+    body, div, ul, li {
+      margin: 0;
+      padding: 0;
+    }
 
-		ul {
-			list-style: none;
-		}
+    ul {
+      list-style: none;
+    }
 
-		body {
-			background: #1b1b1b;
-			font: 12px/20px Arial;
-		}
+    body {
+      background: #1b1b1b;
+      font: 12px/20px Arial;
+    }
 
-		#box {
-			width: 492px;
-			height: 172px;
-			position: relative;
-			border: 8px solid #fff;
-			border-radius: 5px;
-			margin: 10px auto;
-		}
+    #box {
+      width: 492px;
+      height: 172px;
+      position: relative;
+      border: 8px solid #fff;
+      border-radius: 5px;
+      margin: 10px auto;
+    }
 
-		#box .list {
-			position: relative;
-			width: 490px;
-			height: 170px;
-			border: 1px solid grey;
-			overflow: hidden;
-		}
+    #box .list {
+      position: relative;
+      width: 490px;
+      height: 170px;
+      border: 1px solid grey;
+      overflow: hidden;
+    }
 
-		#box .list li {
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 490px;
-			height: 170px;
-			opacity: 0;
-			filter: alpha(opacity=0);
-		}
+    #box .list li {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 490px;
+      height: 170px;
+      opacity: 0;
+      filter: alpha(opacity=0);
+    }
 
-		#box .list li.current {
-			opacity: 1;
-			filter: alpha(opacity=100);
-		}
+    #box .list li.current {
+      opacity: 1;
+      filter: alpha(opacity=100);
+    }
 
-		#box .count {
-			position: absolute;
-			right: 10px;
-			bottom: 5px;
-			text-align: right;
-		}
+    #box .count {
+      position: absolute;
+      right: 10px;
+      bottom: 5px;
+      text-align: right;
+    }
 
-		#box .count li {
-			width: 20px;
-			height: 20px;
-			border-radius: 50%;
-			color: white;
-			background: #e88a26;
-			display: inline-block;
-			text-align: center;
-			cursor: pointer;
-			margin-right: 5px;
-		}
+    #box .count li {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      color: white;
+      background: #e88a26;
+      display: inline-block;
+      text-align: center;
+      cursor: pointer;
+      margin-right: 5px;
+    }
 
-		#box .count li.current {
-			background: #e87b58;
-			font-weight: bold;
-		}
-	</style>
+    #box .count li.current {
+      background: #e87b58;
+      font-weight: bold;
+    }
+  </style>
 </head>
 
 <body>
-	<div id="box">
-		<ul class="list">
-			<li class="current"> <img src="http://www.fgm.cc/learn/lesson4/img/01.jpg" alt=""> </li>
-			<li> <img src="http://www.fgm.cc/learn/lesson4/img/02.jpg" alt=""> </li>
-			<li> <img src="http://www.fgm.cc/learn/lesson4/img/03.jpg" alt=""> </li>
-			<li> <img src="http://www.fgm.cc/learn/lesson4/img/04.jpg" alt=""> </li>
-			<li> <img src="http://www.fgm.cc/learn/lesson4/img/05.jpg" alt=""> </li>
-		</ul>
-		<ul class="count">
-			<li class="current">1</li><!-- -->
-			<li>2</li><!-- -->
-			<li>3</li><!-- -->
-			<li>4</li><!-- -->
-			<li>5</li>
-		</ul>
-	</div>
-	<script type="text/javascript">
-		var oBox = document.getElementById('box'),
-			aList = oBox.getElementsByTagName('ul'),
-			aLi = aList[0].getElementsByTagName('li'),
-			aNum = aList[1].getElementsByTagName('li');
-		var index = 0,
-			timer = play = null,
-			bOrder = true;
+  <div id="box">
+    <ul class="list">
+      <li class="current"> <img src="http://www.fgm.cc/learn/lesson4/img/01.jpg" alt=""> </li>
+      <li> <img src="http://www.fgm.cc/learn/lesson4/img/02.jpg" alt=""> </li>
+      <li> <img src="http://www.fgm.cc/learn/lesson4/img/03.jpg" alt=""> </li>
+      <li> <img src="http://www.fgm.cc/learn/lesson4/img/04.jpg" alt=""> </li>
+      <li> <img src="http://www.fgm.cc/learn/lesson4/img/05.jpg" alt=""> </li>
+    </ul>
+    <ul class="count">
+      <li class="current">1</li><!-- -->
+      <li>2</li><!-- -->
+      <li>3</li><!-- -->
+      <li>4</li><!-- -->
+      <li>5</li>
+    </ul>
+  </div>
+  <script type="text/javascript">
+    var oBox = document.getElementById('box'),
+      aList = oBox.getElementsByTagName('ul'),
+      aLi = aList[0].getElementsByTagName('li'),
+      aNum = aList[1].getElementsByTagName('li');
+    var index = 0,
+      timer = play = null,
+      bOrder = true;
 
-		autoPlay();
+    autoPlay();
 
-		function autoPlay() {
+    function autoPlay() {
 
-			play = setInterval(function() {
-				bOrder ? index++ : index--;
-				if (index >= aLi.length - 1) {
-					index = aLi.length - 1;
-					bOrder = false;
-				} else if (index <= 0) {
-					index = 0;
-					bOrder = true;
-				}
-				show(index);
-			}, 2000)
+      play = setInterval(function() {
+        bOrder ? index++ : index--;
+        if (index >= aLi.length - 1) {
+          index = aLi.length - 1;
+          bOrder = false;
+        } else if (index <= 0) {
+          index = 0;
+          bOrder = true;
+        }
+        show(index);
+      }, 2000)
 
-		}
+    }
 
-		oBox.onmouseover = function() {
-			clearInterval(play);
-		}
-		oBox.onmouseout = function() {
-			autoPlay();
-		}
+    oBox.onmouseover = function() {
+      clearInterval(play);
+    }
+    oBox.onmouseout = function() {
+      autoPlay();
+    }
 
-		for (var i = 0; i < aNum.length; i++) {
-			aNum[i].index = i;
-			aNum[i].onmouseover = function() {
-				index = this.index;
-				show(index);
-			}
-		}
+    for (var i = 0; i < aNum.length; i++) {
+      aNum[i].index = i;
+      aNum[i].onmouseover = function() {
+        index = this.index;
+        show(index);
+      }
+    }
 
-		function show(num) {
-			var index = num,
-				alpha = 0;
+    function show(num) {
+      var index = num,
+        alpha = 0;
 
-			for (var i = 0; i < aLi.length; i++) {
-				aLi[i].style.opacity = 0;
-				aLi[i].style.filter = 'alpha(opacity=0)';
-				aNum[i].className = '';
-			}
-			aNum[index].className = 'current'
+      for (var i = 0; i < aLi.length; i++) {
+        aLi[i].style.opacity = 0;
+        aLi[i].style.filter = 'alpha(opacity=0)';
+        aNum[i].className = '';
+      }
+      aNum[index].className = 'current'
 
-			clearInterval(timer)
+      clearInterval(timer)
 
-			timer = setInterval(function() {
-				alpha += 4;
-				alpha > 100 && (alpha = 100);
-				aLi[index].style.opacity = alpha / 100;
-				aLi[index].style.filter = 'filter(opacity=' + alpha + ')';
-				alpha == 100 && (clearInterval(timer))
-			}, 30)
-		}
-	</script>
+      timer = setInterval(function() {
+        alpha += 4;
+        alpha > 100 && (alpha = 100);
+        aLi[index].style.opacity = alpha / 100;
+        aLi[index].style.filter = 'filter(opacity=' + alpha + ')';
+        alpha == 100 && (clearInterval(timer))
+      }, 30)
+    }
+  </script>
 </body>
 
 </html>
