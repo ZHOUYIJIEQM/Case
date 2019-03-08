@@ -1,6 +1,7 @@
 # 整合一些小案例
 > 导航条： [点击查看](https://zhouyijieqm.github.io/Case/导航条.html)  
 > 简易JS年历： [点击查看](https://zhouyijieqm.github.io/Case/简易JS年历.html)  
+> 打字效果： [点击查看](https://zhouyijieqm.github.io/Case/打字机效果.html)  
 > checkbox多选/反选： [点击查看](https://zhouyijieqm.github.io/Case/checkbox.html)  
 > 自动改变方向幻灯片效果： [点击查看](https://zhouyijieqm.github.io/Case/checkbox.html)  
 > 自动轮播广告面向对象版： [点击查看](https://zhouyijieqm.github.io/Case/自动轮播广告面向对象版.html)  
