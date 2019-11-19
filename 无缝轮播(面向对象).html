@@ -217,6 +217,7 @@
       // // 循环方式
       for(var i = 0; i < this.pLi.length; i++){
         this.pLi[i].onclick = function(){
+          if(oThis.flag) return;
           var index1 = this.getAttribute('data-index');
           var offset = (oThis.index - index1) * oThis.liWidth;
           oThis.sliderOffset(offset);
@@ -226,6 +227,7 @@
       }
       // // 委托方式
       // this.oOl.onclick = function(event){
+      //   if(oThis.flag) return;
       //   var event = event || window.event;
       //   var target = event.target || event.srcElement;
       //   if(target.nodeName.toLowerCase() == 'li'){
@@ -290,7 +292,7 @@
             icur = parseInt(oThis.getStyle(obj, attr))
           }
           
-          var iSpeed = (json[attr] - icur) / 10;
+          var iSpeed = (json[attr] - icur) / 5;
           iSpeed = iSpeed > 0 
             ? Math.ceil(iSpeed)
             : Math.floor(iSpeed);
