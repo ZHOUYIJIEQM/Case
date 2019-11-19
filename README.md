@@ -5,7 +5,7 @@
 > checkbox多选/反选： [点击查看](https://zhouyijieqm.github.io/Case/checkbox.html)  
 > 自动改变方向幻灯片效果： [点击查看](https://zhouyijieqm.github.io/Case/自动改变方向幻灯片效果.html)  
 > 自动轮播广告面向对象版： [点击查看](https://zhouyijieqm.github.io/Case/自动轮播广告面向对象版.html)  
-> 无缝轮播： [点击查看](https://zhouyijieqm.github.io/Case/无缝轮播.html)  
+> 无缝轮播： [点击查看](https://zhouyijieqm.github.io/Case/无缝轮播(面向对象).html)  
 > 无缝滚动： [点击查看](https://zhouyijieqm.github.io/Case/无缝滚动.html)  
 > 点击展开： [点击查看](https://zhouyijieqm.github.io/Case/点击展开.html)  
 > 延时加载： [点击查看](https://zhouyijieqm.github.io/Case/延时加载.html)  
