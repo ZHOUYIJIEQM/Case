@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>flexbox练习</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style>
+		*{
+			box-sizing: border-box;
+		}
+		html, body{
+			height: 100%;
+		}
+		body{
+			display: -webkit-flex;
+			display: -moz-flex;
+			display: -ms-flex;
+			display: -o-flex;
+			display: flex;
+			flex-direction: column;
+			background-color: #fff;
+			margin: 0;
+			color: #222;
+			font-size: 0.9em;
+			font-family: Lato, sans-serif;
+		}
+		main{
+			flex: 1 0 auto;
+			display: -webkit-flex;
+			display: -moz-flex;
+			display: -ms-flex;
+			display: -o-flex;
+			display: flex;
+		}
+
+		footer {
+			flex: 0 0 90px;
+			display: -webkit-flex;
+			display: -moz-flex;
+			display: -ms-flex;
+			display: -o-flex;
+			display: flex;
+			background-color: rgba(61, 100, 158, .9);
+			color: #fff;
+		}
+
+		.content img{
+			width: 100px;
+		}
+
+		footer img{
+			width: 100px;
+		}
+
+		aside{
+			flex: 0 0 40px;
+			display: -webkit-flex;
+			display: -moz-flex;
+			display: -ms-flex;
+			display: -o-flex;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-around;
+			align-items: center;
+			background-color: #f2f2f2;
+		}
+
+		aside i.fa{
+			font-size: 0.9em;
+		}
+
+		.content{
+			display: -webkit-flex;
+			display: -moz-flex;
+			display: -ms-flex;
+			display: -o-flex;
+			display: flex;
+			-webkit-flex-direction: column;
+			-moz-flex-direction: column;
+			-ms-flex-direction: column;
+			-o-flex-direction: column;
+			flex-direction: column;
+			flex: 1 0 auto;
+		}
+
+		.music-head{
+			display: -webkit-flex;
+			display: -moz-flex;
+			display: -ms-flex;
+			display: -o-flex;
+			display: flex;
+			flex: 0 0 auto;
+			background-color: #4e4e4e;
+			padding: 40px;
+			color: white;
+		}
+
+		.thumb img{
+			width: 150px;
+			height: 200px;
+		}
+
+		.catty-music{
+			flex: 1 0 auto;
+			padding-left: 50px;
+		}
+
+		.catty-music div:nth-of-type(1) p:first-child{
+			margin-bottom: 20px;
+		}
+
+		.catty-music div:nth-of-type(1) p{
+			margin: 10px;
+		}
+
+		.catty-music div:nth-of-type(2){
+			margin-top: 90px;
+			margin-left: 10px;
+		}
+
+		.catty-music div:nth-of-type(2) i{
+			margin-right: 15px;
+		}
+
+		.music-list{
+			list-style-type: none;
+			display: -webkit-flex;
+			display: -moz-flex;
+			display: -ms-flex;
+			display: -o-flex;
+			display: flex;
+			-webkit-flex-direction: column;
+			-moz-flex-direction: column;
+			-ms-flex-direction: column;
+			-o-flex-direction: column;
+			flex-direction: column;
+			padding: 10px;
+		}
+		.music-list li{
+			flex: 1 0 50px;
+			display: -webkit-flex;
+			display: -moz-flex;
+			display: -ms-flex;
+			display: -o-flex;
+			display: flex;
+			padding: 0 10px;
+		}
+		.music-list li p{
+			width: 25%;
+		}
+		.music-list li:nth-child(2n){
+			background-color: #e8e8e8;
+		}
+		.music-list li:nth-child(2n+1){
+			background-color: #e1e3e4;
+		}
+
+		footer div{
+			display: -webkit-flex;
+			display: -moz-flex;
+			display: -ms-flex;
+			display: -o-flex;
+			display: flex;
+		}
+
+		.catty-music-small{
+			width: 40%;
+		}
+		.catty-music-small img{
+			width: 80px;
+			height: 70px;
+			margin: 10px 20px;
+		}
+		.catty-music-small div{
+			display: -webkit-flex;
+			display: -moz-flex;
+			display: -ms-flex;
+			display: -o-flex;
+			display: flex;
+			-webkit-flex-direction: column;
+			-moz-flex-direction: column;
+			-ms-flex-direction: column;
+			-o-flex-direction: column;
+			flex-direction: column;
+			flex: 1 0 auto;
+		}
+
+		.catty-music-small div p{
+			margin: 10px;
+		}
+
+		.catty-music-controls{
+			display: -webkit-flex;
+			display: -moz-flex;
+			display: -ms-flex;
+			display: -o-flex;
+			display: flex;
+			flex: 1 0 auto;
+			justify-content: space-around;
+			align-items: center;
+		}
+
+		@media (max-width: 980px){
+			.md-hide{
+				display: none;
+			}
+			.md-text-center{
+				text-align: center;
+			}
+			.md-text-right{
+				text-align: right;
+			}
+		}
+
+		@media (max-width: 760px){
+			.sm-hide{
+				display: none;
+			}
+			.sm-text-center{
+				text-align: center;
+			}
+			.sm-text-right{
+				text-align: right;
+			}
+
+			.music-head{
+				padding: 0;
+				display: -webkit-flex;
+				display: -moz-flex;
+				display: -ms-flex;
+				display: -o-flex;
+				display: flex;
+				-webkit-flex-direction: column;
+				-moz-flex-direction: column;
+				-ms-flex-direction: column;
+				-o-flex-direction: column;
+				flex-direction: column;
+				padding: 20px 0px;
+			}
+			.music-head .thumb{
+				display: -webkit-inline-flex;
+				display: -moz-inline-flex;
+				display: -ms-inline-flex;
+				display: -o-inline-flex;
+				display: inline-flex;
+				justify-content: center;
+				align-items: center;
+			}
+			.music-head .thumb img{
+				padding: 0;
+				width: 150px;
+				height: 100px;
+			}
+
+			.catty-music{
+				padding-left: 0;
+				margin-top: 10px;
+			}
+
+			.catty-music div:nth-of-type(1) p:first-child {
+		    margin-bottom: 10px;
+			}
+
+			.catty-music div:nth-of-type(2) {
+				margin: 0;
+			}
+			
+			.music-list li p{
+				width: 60%;
+			}
+			.music-list li p:nth-of-type(3){
+				text-align: right;
+			}
+
+
+		}
+	</style>
+</head>
+<body>
+	<main>
+		<aside class="md-hide">
+			<i class="fa fa-bars"></i> 
+			<i class="fa fa-home"></i> 
+			<i class="fa fa-search"></i> 
+			<i class="fa fa-volume-up"></i> 
+			<i class="fa fa-user"></i> 
+			<i class="fa fa-spotify"></i> 
+			<i class="fa fa-cog"></i> 
+			<i class="fa fa-soundcloud"></i>
+		</aside>
+
+		<section class="content">
+			<div class="music-head">
+				<div class="thumb">
+					<img src="https://www.w3cplus.com/sites/default/files/blogs/2017/1702/understanding-flexbox-4.jpeg" alt="封面">
+				</div>
+				<section class="catty-music">
+					<div>
+					  <p class="md-text-center sm-text-center">CattyBoard Top 100 Single Charts (11.06.36)</p>
+					  <p class="md-text-center sm-hide">Unknown Artist</p>
+					  <p class="md-text-center sm-hide">2016 . Charts . 100 songs</p>
+					</div>
+
+					<div class="md-text-center"> <!--Music controls--> 
+						<i class="fa fa-play">Play all</i> 
+						<i class="fa fa-plus">Add to</i> 
+						<i class="fa fa-ellipsis-h">More</i> 
+					</div>
+				</section>
+			</div>
+
+			<ul class="music-list">
+			  <li>
+			    <p>1. One Dance</p>
+			    <p class="sm-hide">Crake feat CatKid & Cyla</p>
+			    <p>2:54</p>
+			    <p class="sm-hide"><span class="catty-cloud">CATTY CLOUD SYNC</span></p>
+			  </li>
+			  <li>
+			    <p>2. Panda</p>
+			    <p class="sm-hide">Cattee</p>
+			    <p>4:06</p>
+			    <p class="sm-hide"><span class="catty-cloud">CATTY CLOUD SYNC</span></p>
+			  </li>
+			  <li>
+			    <p>3. Can't Stop the Feeling!</p>
+			    <p class="sm-hide">Catin Cimberlake</p>
+			    <p>3:56</p>
+			    <p class="sm-hide"><span class="catty-cloud">CATTY CLOUD SYNC</span></p>
+			  </li>
+			  <li>
+			    <p>4. Work From Home</p>
+			    <p class="sm-hide">Cat Harmony feat Colla</p>
+			    <p>3:34</p>
+			    <p class="sm-hide"><span class="catty-cloud">CATTY CLOUD SYNC</span></p>
+			  </li>
+			  <li>
+			    <p>5. Work From Home</p>
+			    <p class="sm-hide">Cat Harmony feat Colla</p>
+			    <p>3:34</p>
+			    <p class="sm-hide"><span class="catty-cloud">CATTY CLOUD SYNC</span></p>
+			  </li>
+			  <li>
+			    <p>6. Work From Home</p>
+			    <p class="sm-hide">Cat Harmony feat Colla</p>
+			    <p>3:34</p>
+			    <p class="sm-hide"><span class="catty-cloud">CATTY CLOUD SYNC</span></p>
+			  </li>
+			</ul>
+		</section>
+
+	</main>
+
+	<footer>
+		<div class="catty-music-small">
+			<img class="sm-hide" src="https://www.w3cplus.com/sites/default/files/blogs/2017/1702/understanding-flexbox-4.jpeg" alt="封面">
+			<div>
+				<p>If It Ain't Love</p>
+				<p>Catson Derulo</p>
+			</div>
+		</div>
+		<div class="catty-music-controls">
+			<i class="fa fa-step-backward"></i>
+			<i class="fa fa-pause"></i>
+			<i class="fa fa-step-forward"></i>
+			<i class="fa fa-rotate-right md-hide"></i>
+			<i class="fa fa-random md-hide"></i>
+		</div>
+	</footer>	
+</body>
+</html>
