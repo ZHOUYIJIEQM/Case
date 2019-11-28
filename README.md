@@ -1,4 +1,5 @@
 # 整合一些小案例
+> flexbox练习： [点击查看](https://zhouyijieqm.github.io/Case/flexbox练习.html)  
 > 导航条： [点击查看](https://zhouyijieqm.github.io/Case/导航条.html)  
 > 简易JS年历： [点击查看](https://zhouyijieqm.github.io/Case/简易JS年历.html)  
 > 打字效果： [点击查看](https://zhouyijieqm.github.io/Case/打字机效果.html)  
