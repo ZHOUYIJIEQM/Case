@@ -100,6 +100,14 @@
         reClass.test(aElem[i].className) && aClass.push(aElem[i]);
       return aClass
     }
+    /*
+    总结：
+    点up时，让ul最后的li，插入到第一个li前，然后操作css的top为负数li高度，
+        保持在显示的第一个li上，最后缓冲运动ul滚动到top为0;
+    点击down时，向下缓冲滚动一个li的高度，缓冲滚动完成则调用回调函数，
+        让第一个li插入到最后ul最后一个li后面，同时top设置为0;
+    这样点击的时候就好像没完没了，形成无缝滚动。
+    */
     //初始化对象
     function Roll() {
       this.initialize.apply(this, arguments)
